@@ -199,14 +199,14 @@ namespace Dashboard
                 iniFile = System.Environment.CurrentDirectory + "\\config.ini";
                 if (System.IO.File.Exists(iniFile))
                 {
-                    sz_ip_address = INIFile.ReadValue(iniFile, "CONNECTION", "DOMAIN");
-                    sz_port = INIFile.ReadValue(iniFile, "CONNECTION", "PORT");
+                    sz_ip_address = INIFile.ReadValue(iniFile, "SYSTEM", "DOMAIN");
+                    sz_port = INIFile.ReadValue(iniFile, "SYSTEM", "PORT");
 
-                    sz_seialport = INIFile.ReadValue(iniFile, "CONNECTION", "SerialPort");
+                    sz_seialport = INIFile.ReadValue(iniFile, "SYSTEM", "SerialPort");
 
-                    nud_Delay = Convert.ToUInt32(INIFile.ReadValue(iniFile, "CONNECTION", "Delay"));
-                    n_Band_Rate = Convert.ToInt32(INIFile.ReadValue(iniFile, "CONNECTION", "Baud"));
-                    n_connectmode = Convert.ToUInt32(INIFile.ReadValue(iniFile, "CONNECTION", "CONNMODE"));
+                    nud_Delay = Convert.ToUInt32(INIFile.ReadValue(iniFile, "SYSTEM", "Delay"));
+                    n_Band_Rate = Convert.ToInt32(INIFile.ReadValue(iniFile, "SYSTEM", "Baud"));
+                    n_connectmode = Convert.ToUInt32(INIFile.ReadValue(iniFile, "SYSTEM", "CONNMODE"));
 
                     //if (n_connectmode == "0")
                     //{
@@ -231,13 +231,13 @@ namespace Dashboard
 
                     //            }
 
-                    b_AutoConnection = Convert.ToBoolean(INIFile.ReadValue(iniFile, "CONNECTION", "AutoConnection"));
+                    b_AutoConnection = Convert.ToBoolean(INIFile.ReadValue(iniFile, "SYSTEM", "AutoConnection"));
                     if (b_AutoConnection)
                     {
                         //BeginListen();
                         Serial_Open(sz_seialport, n_Band_Rate, 8, Parity.None, StopBits.One);
                     }
-                    b_Reconnection = Convert.ToBoolean(INIFile.ReadValue(iniFile, "CONNECTION", "Reconnection"));
+                    b_Reconnection = Convert.ToBoolean(INIFile.ReadValue(iniFile, "SYSTEM", "Reconnection"));
                 }
             }
             catch { }
